@@ -18,3 +18,12 @@ async function main() {
 
   console.log("Created test user:", user);
 }
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
